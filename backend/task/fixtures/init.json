@@ -1,0 +1,29 @@
+[
+  {
+    "model": "task.task",
+    "pk": 1,
+    "fields": {
+        "is_completed": true,
+        "title": "Review Patient 1",
+        "content": "Name, Surname 1"
+      }
+  },
+  {
+    "model": "task.task",
+    "pk": 2,
+    "fields": {
+        "is_completed": true,
+        "title": "Review Patient 2",
+        "content": "Name, Surname 3"
+      }
+  },
+  {
+    "model": "task.task",
+    "pk": 3,
+    "fields": {
+        "is_completed": true,
+        "title": "Review Patient 3",
+        "content": "Name, Surname 3"
+      }
+  }
+]

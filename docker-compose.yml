@@ -1,0 +1,23 @@
+version: "3.8"
+   
+services:
+    backend:
+        build: ./backend/
+        container_name:  backend
+        restart: always  
+        volumes:
+            - ./backend:/usr/src/app/
+        ports:
+            - "8000:8000"
+        # depends_on:
+        #     - redis
+    frontend:
+        build: ./frontend/
+        container_name:  frontend
+        restart: always  
+        # volumes:
+            # - ./frontend:/usr/src/app/
+        ports:
+            - "8080:8080"
+        depends_on:
+            - backend
