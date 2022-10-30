@@ -13,7 +13,11 @@ A task application created using Django, Vue.js and GraphQL.
 
 ## Installation
 
-This is a pure dockerized application
+This is a dockerized application
+
+```bash
+git clone https://github.com/Lunatic83/gscherma-ha.git
+```
 
 
 Run Build Application and tests
