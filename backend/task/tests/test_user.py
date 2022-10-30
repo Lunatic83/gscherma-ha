@@ -56,27 +56,27 @@ class TaskManagerTestCase(GraphQLTestCase):
         self.assertResponseNoErrors(response)
         self.assertIsNotNone(content["data"]["tokenAuth"]['token'])
 
-    # def test_token_auth_mutation_failing(self):
-    #     response = self.query(
-    #         '''
-    #         mutation tokenAuth($username: String!, $password: String!) {
-    #             tokenAuth(username: $username, password: $password) {
-    #             token
-    #             user {
-    #                     id
-    #                     username
-    #                 }
-    #             }
-    #         }
-    #         ''',
-    #         op_name='tokenAuth',
-    #         variables={'username': 'test_user4', 'password': 'password'}
-    #     )
+    def test_token_auth_mutation_failing(self):
+        response = self.query(
+            '''
+            mutation tokenAuth($username: String!, $password: String!) {
+                tokenAuth(username: $username, password: $password) {
+                token
+                user {
+                        id
+                        username
+                    }
+                }
+            }
+            ''',
+            op_name='tokenAuth',
+            variables={'username': 'test_user4', 'password': 'password'}
+        )
 
-    #     content = json.loads(response.content)
-    #     self.assertResponseHasErrors(response)
-    #     self.assertEqual(content["errors"][0]["message"],"Please enter valid credentials")
-    #     self.assertEqual(content["data"]["tokenAuth"], None)
+        content = json.loads(response.content)
+        self.assertResponseHasErrors(response)
+        self.assertEqual(content["errors"][0]["message"],"Please enter valid credentials")
+        self.assertEqual(content["data"]["tokenAuth"], None)
 
 
 

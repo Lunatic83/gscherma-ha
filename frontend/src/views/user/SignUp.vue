@@ -42,7 +42,7 @@
 
 <script>
   import { useUserStore } from "@/stores/user";
-  import { USER_SIGNUP, USER_SIGNIN } from "@/mutations";
+  import { USER_SIGNUP } from "@/mutations";
 
   export default {
     name: "SignUpView",
@@ -66,7 +66,7 @@
     methods: {
       async userSignUp() {
         // Register user
-        await this.$apollo.mutate({
+        const response = await this.$apollo.mutate({
           mutation: USER_SIGNUP,
           variables: {
             username: this.signUpDetails.username,
@@ -77,21 +77,7 @@
           this.errorMessage = err
         });
 
-        // Sign in
-        const user = await this.$apollo.mutate({
-          mutation: USER_SIGNIN,
-          variables: {
-            username: this.signUpDetails.username,
-            password: this.signUpDetails.password,
-          },
-        })
-          .catch(err => {
-            this.errorMessage = err
-          });
-
-        if (user) {
-          this.userStore.setToken(user.data.tokenAuth.token);
-          this.userStore.setUser(user.data.tokenAuth.user);
+        if (response) {
           window.location.href = '/'
         }
 

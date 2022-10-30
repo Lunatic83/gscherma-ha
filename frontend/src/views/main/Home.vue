@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1 class="text-5xl font-extrabold mb-2">A Task manager for Aidence</h1>
-    <p class="text-gray-500 text-lg mb-5">
+    <p v-if="!user.isAuthenticated" class="text-gray-500 text-lg mb-5">
       Task List
     </p>
     <task-list v-if="user.isAuthenticated" :tasks="this.allTasks"></task-list>

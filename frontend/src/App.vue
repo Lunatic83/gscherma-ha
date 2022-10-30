@@ -17,6 +17,12 @@
             class="mx-2 font-sans font-medium hover:underline hover:text-teal-700"
             >Sign in</router-link
           >
+          <router-link
+            v-if="!this.user.isAuthenticated"
+            to="/signup"
+            class="mx-2 font-sans font-medium hover:underline hover:text-teal-700"
+            >Sign up</router-link
+          >
           <a
             v-if="this.user.isAuthenticated"
             @click="userSignOut()"
