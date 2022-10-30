@@ -23,7 +23,7 @@ git clone https://github.com/Lunatic83/gscherma-ha.git
 Run Build Application and tests
 ```bash
 cd gscherma-ha
-docker-compose up --build
+docker-compose up --build frontend
 ```
 
 After docker-compose build is complete and app is running
