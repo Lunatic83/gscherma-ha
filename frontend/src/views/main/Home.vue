@@ -6,7 +6,7 @@
     </p>
     <task-list v-if="user.isAuthenticated" :tasks="this.allTasks"></task-list>
     <div v-if="!user.isAuthenticated">
-      Sign in to show yout tasks
+      Sign in to show your tasks
     </div>
   </div>
 </template>
